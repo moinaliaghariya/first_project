@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_room_list" model="ir.ui.view">
+            <field name="name">rooms.detail.list</field>
+            <field name="model">rooms.detail</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="room"/>
+                    <field name="amount"/>
+<!--                    <field name="icu"/>-->
+<!--                    <field name="special_room"/>-->
+<!--                    <field name="special"/>-->
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_room_form" model="ir.ui.view">
+            <field name="name">rooms.detail.form</field>
+            <field name="model">rooms.detail</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="room" />
+                            <field name="amount" />
+<!--                            <field name="icu"/>-->
+<!--                            <field name="special_room" />-->
+<!--                            <field name="special" widget="radio"/>-->
+
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="rooms_info_action" model="ir.actions.act_window">
+            <field name="name">Rooms Detail</field>
+            <field name="res_model">rooms.detail</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="menu_rooms_details"
+                  name="Rooms"
+                  action="rooms_info_action"
+                  parent="menu_hospital_info"
+                  sequence="3"/>
+
+        <!--        <menuitem id="menu_rooms_1_details"-->
+        <!--                  name="ICU"-->
+        <!--                  action="rooms_info_action"-->
+        <!--                  parent="menu_rooms_details"-->
+        <!--                  sequence="10"/>-->
+
+
+        <!--         <menuitem id="menu_rooms_2_details"-->
+        <!--                  name="General Room"-->
+        <!--                  action="rooms_info_action"-->
+        <!--                  parent="menu_rooms_details"-->
+        <!--                  sequence="20"/>-->
+
+        <!--        <menuitem id="menu_rooms_3_details"-->
+        <!--                  name="Special Room"-->
+        <!--                  action="rooms_info_action"-->
+        <!--                  parent="menu_rooms_details"-->
+        <!--                  sequence="30"/>-->
+
+    </data>
+</odoo>

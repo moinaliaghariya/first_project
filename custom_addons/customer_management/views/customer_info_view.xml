@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+
+        <record id="customer_name_lead_calendar" model="ir.ui.view">
+            <field name="name">customer.name.calendar</field>
+            <field name="model">customer.name</field>
+            <field name="arch" type="xml">
+                <calendar date_start="birth_date">
+                    <field name="birth_date"/>
+
+                </calendar>
+            </field>
+        </record>
+
+
+        <record id="view_customer_pivot" model="ir.ui.view">
+            <field name="name">customer.name.pivot</field>
+            <field name="model">customer.name</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <field name="status" type="row"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="view_customer_graph" model="ir.ui.view">
+            <field name="name">customer.name.graph</field>
+            <field name="model">customer.name</field>
+            <field name="arch" type="xml">
+                <graph>
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                </graph>
+            </field>
+        </record>
+
+
+        <record id="view_customer_kanban" model="ir.ui.view">
+            <field name="name">customer.name.kanban</field>
+            <field name="model">customer.name</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="first_name"/>
+                    <field name="middle_name"/>
+                    <field name="last_name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_customer_kanban_record">
+                                <field name="Image" class="o_kanban_image_fill_left " preview_image="image_128"
+                                       widget="image"/>
+
+                                <div class="oe_kanban_details">
+                                    <ul>
+                                        <li>Name:
+                                            <field name="first_name"/>
+                                        </li>
+                                        <li>middle_name:
+                                            <field name="middle_name"/>
+                                        </li>
+                                        <li>last_name:
+                                            <field name="last_name"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="view_customer_form" model="ir.ui.view">
+            <field name="name">customer.name.form</field>
+            <field name="model">customer.name</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="middle_name"/>
+                            <field name="last_name"/>
+                            <field name="birth_date"/>
+                            <field name="address"/>
+                            <!--                            <field name="gender"/>-->
+                            <field name="phone_no"/>
+                            <field name="email"/>
+                            <field name="blood_group"/>
+                            <field name="product_id"/>
+                            <field name="status" widget="Status"/>
+                            <field name="Image" widget="Image" class="oe_avatar"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_customer_tree_view" model="ir.ui.view">
+            <field name="name">customer.name.tree</field>
+            <field name="model">customer.name</field>
+            <field name="arch" type="xml">
+                <tree>
+
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <field name="last_name"/>
+                    <field name="birth_date"/>
+                    <field name="address"/>
+                    <!--                            <field name="gender"/>-->
+
+
+                    <field name="phone_no"/>
+                    <field name="email"/>
+                    <field name="blood_group"/>
+                    <field name="status" widget="Status"/>
+                    <field name="Image" widget="Image"/>
+
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="customer_name_action" model="ir.actions.act_window">
+            <field name="name">Customer Name</field>
+            <field name="res_model">customer.name</field>
+            <field name="view_mode">calendar,pivot,graph,kanban,tree,form</field>
+
+        </record>
+
+        <menuitem id="menu_customer_info"
+                  name="Customer"
+                  sequence="1"/>
+
+        <menuitem id="menu_customer_detail"
+                  name="Customer Detail"
+                  action="customer_name_action"
+                  parent="menu_customer_info"
+                  sequence="1"/>
+    </data>
+</odoo>

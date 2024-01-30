@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_patient_list" model="ir.ui.view">
+            <field name="name">patient.detail.list</field>
+            <field name="model">patient.detail</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="gender"/>
+                    <field name="ref"/>
+                    <field name="age"/>
+                    <field name="blood_group"/>
+                    <field name="mobile_no"/>
+                    <field name="address"/>
+                    <field name="select_doctor"/>
+                    <field name="select_room_id"/>
+                    <field name="amount"/>
+                    <field name="days"/>
+                    <field name="total_amount"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_patient_form" model="ir.ui.view">
+            <field name="name">patient.detail.form</field>
+            <field name="model">patient.detail</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="gender"/>
+                                <field name="ref"/>
+                                <field name="age"/>
+                                <field name="blood_group"/>
+                                <field name="mobile_no"/>
+                                <field name="address"/>
+                            </group>
+                            <group>
+                                <field name="select_doctor"/>
+                                <field name="select_room_id"/>
+                                <field name="amount"/>
+                                <field name="days"/>
+                                <field name="total_amount"/>
+
+                            </group>
+
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="patient_info_action" model="ir.actions.act_window">
+            <field name="name">Patient Detail</field>
+            <field name="res_model">patient.detail</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="menu_patient_details"
+                  name="Patient"
+                  action="patient_info_action"
+                  parent="menu_hospital_info"
+                  sequence="2"/>
+
+    </data>
+</odoo>

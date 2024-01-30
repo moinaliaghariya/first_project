@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+          <record id="bill_info_action" model="ir.actions.act_window">
+            <field name="name">Bill Detail</field>
+            <field name="res_model">bill.detail</field>
+            <field name="view_mode">form</field>
+        </record>
+
+
+        <menuitem id="menu_bill_details"
+                  name="Total Bill"
+                  action="bill_info_action"
+                  parent="menu_hospital_info"
+                  sequence="5"/>
+
+    </data>
+</odoo>

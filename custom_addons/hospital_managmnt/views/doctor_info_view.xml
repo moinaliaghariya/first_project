@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_hospital_list" model="ir.ui.view">
+            <field name="name">doctor.detail.list</field>
+            <field name="model">doctor.detail</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="ref"/>
+                    <field name="specialist"/>
+                    <field name="birth_date"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_hospital_form" model="ir.ui.view">
+            <field name="name">doctor.detail.form</field>
+            <field name="model">doctor.detail</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="ref"/>
+                            <field name="specialist"/>
+                            <field name="birth_date"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="hospital_name_action" model="ir.actions.act_window">
+            <field name="name">Doctor Detail</field>
+            <field name="res_model">doctor.detail</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_hospital_info"
+                  name="Hospital"
+                  web_icon="hospital_managmnt,static/description/icon.png"
+                  sequence="1"/>
+
+
+        <menuitem id="menu_hospital_detail"
+                  name="Doctor Detail"
+                  action="hospital_name_action"
+                  parent="menu_hospital_info"
+                  sequence="1"/>
+
+
+    </data>
+</odoo>
