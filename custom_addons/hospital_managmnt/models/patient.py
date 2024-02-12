@@ -18,7 +18,7 @@ class PatientDetail(models.Model):
     select_room_id = fields.Many2one('rooms.detail', string="Select Room")
     amount = fields.Float(related="select_room_id.amount", string="Amount")
     days = fields.Integer(string="Days")
-    total_amount = fields.Integer(string="Total days", compute="_compute_total_days_bill")
+    total_amount = fields.Integer(string="Total Amount", compute="_compute_total_days_bill")
 
     @api.depends('amount','days')
     def _compute_total_days_bill(self):
@@ -32,3 +32,6 @@ class PatientDetail(models.Model):
     @api.onchange('select_doctor')
     def onchange_select_doctor(self):
         self.ref =self.select_doctor.ref
+
+    def obj_test(self):
+        print("Button Clicked")

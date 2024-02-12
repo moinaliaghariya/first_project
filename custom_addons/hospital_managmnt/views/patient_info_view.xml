@@ -29,16 +29,22 @@
             <field name="model">patient.detail</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="obj_test" string="Object Button" type="object" class="oe_highlight"/>
+                        <button name="%(hospital_name_action)d" string="action" type="action" class="oe_highlight"/>
+                    </header>
                     <sheet>
                         <group>
                             <group>
+
                                 <field name="name"/>
                                 <field name="gender"/>
                                 <field name="ref"/>
                                 <field name="age"/>
                                 <field name="blood_group"/>
-                                <field name="mobile_no"/>
+
                                 <field name="address"/>
+
                             </group>
                             <group>
                                 <field name="select_doctor"/>
@@ -51,6 +57,14 @@
 
 
                         </group>
+                        <notebook>
+                            <page string="Information">
+                                <group>
+                                    <field name="mobile_no"/>
+                                </group>
+
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>

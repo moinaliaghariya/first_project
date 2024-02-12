@@ -9,12 +9,14 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
+                    <field name="roll_no"/>
+                    <field name="birth_date"/>
+                    <field name="age"/>
                     <field name="standard_id"/>
                     <field name="division"/>
-                    <field name="subject1"/>
-                    <field name="subject2"/>
-                    <field name="subject3"/>
-                    <field name="subject4"/>
+<!--                    <field name="sub_english"/>-->
+<!--                    <field name="sub_math"/>-->
+<!--                    <field name="sub_hindi"/>-->
                 </tree>
             </field>
         </record>
@@ -26,13 +28,20 @@
                 <form>
                     <sheet>
                         <group>
-                            <field name="name"/>
-                            <field name="standard_id"/>
-                            <field name="division"/>
-                            <field name="subject1"/>
-                            <field name="subject2"/>
-                            <field name="subject3"/>
-                            <field name="subject4"/>
+                            <group>
+                                <field name="name"/>
+                                <field name="roll_no"/>
+                                <field name="birth_date"/>
+                                <field name="age"/>
+                                <field name="standard_id"/>
+                                <field name="division"/>
+
+                            </group>
+                            <group>
+                                <field name="sub_english"/>
+                                <field name="sub_math"/>
+                                <field name="sub_hindi"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>

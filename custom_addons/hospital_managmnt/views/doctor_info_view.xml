@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
+         <record id="doctor_salary_action" model="ir.actions.server">
+            <field name="name">Total Salary</field>
+            <field name="model_id" ref="hospital_managmnt.model_doctor_detail"/>
+            <field name="binding_model_id" ref="hospital_managmnt.model_doctor_detail"/>
+            <field name="binding_view_types">form</field>
+            <field name="state">code</field>
+            <field name="code">action = records. doctor_salary()</field>
+        </record>
+
+
+
         <record id="view_hospital_list" model="ir.ui.view">
             <field name="name">doctor.detail.list</field>
             <field name="model">doctor.detail</field>
@@ -12,6 +23,9 @@
                     <field name="birth_date"/>
                     <field name="age"/>
                     <field name="gender"/>
+                    <field name="salary"/>
+                    <field name="bonus"/>
+                    <field name="total_salary"/>
                 </tree>
             </field>
         </record>
@@ -23,6 +37,11 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
+                        <div>
+                            <h2>
+                                <field name="priority" widget="priority"/>
+                            </h2>
+                        </div>
                         <group>
                             <field name="name"/>
                             <field name="ref"/>
@@ -30,6 +49,9 @@
                             <field name="birth_date"/>
                             <field name="age"/>
                             <field name="gender"/>
+                            <field name="salary"/>
+                            <field name="bonus"/>
+                            <field name="total_salary"/>
 
                         </group>
                     </sheet>

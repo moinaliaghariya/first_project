@@ -11,8 +11,6 @@
                     <field name="checkedin"/>
                     <field name="checkedout"/>
                     <field name="total_working_hours"/>
-                    <field name="teacher_present"/>
-
                 </tree>
             </field>
         </record>
