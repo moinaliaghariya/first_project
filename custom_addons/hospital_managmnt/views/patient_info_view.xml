@@ -32,6 +32,10 @@
                     <header>
                         <button name="obj_test" string="Object Button" type="object" class="oe_highlight"/>
                         <button name="%(hospital_name_action)d" string="action" type="action" class="oe_highlight"/>
+                        <button name="check_create" string="Create" type="object" class="oe_highlight"/>
+                        <button name="check_unlink" string="Unlink" type="object" class="oe_highlight"/>
+                        <button name="check_orm" string="Check ORM" type="object" class="oe_highlight"/>
+                        <button name="check_browse" string="Check Browse" type="object" class="oe_highlight"/>
                     </header>
                     <sheet>
                         <group>

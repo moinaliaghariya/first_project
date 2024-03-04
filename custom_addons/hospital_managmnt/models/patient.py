@@ -7,7 +7,7 @@ class PatientDetail(models.Model):
     _rec_name = "name"
 
     name = fields.Char(string="Name")
-    gender = fields.Selection( string="Gender",related='select_doctor.gender',)
+    gender = fields.Selection(string="Gender", related='select_doctor.gender', )
     ref = fields.Char(string="Reference")
     age = fields.Integer(string="Age")
     blood_group = fields.Selection(
@@ -20,7 +20,7 @@ class PatientDetail(models.Model):
     days = fields.Integer(string="Days")
     total_amount = fields.Integer(string="Total Amount", compute="_compute_total_days_bill")
 
-    @api.depends('amount','days')
+    @api.depends('amount', 'days')
     def _compute_total_days_bill(self):
         for x in self:
             if x.amount and x.days:
@@ -28,10 +28,34 @@ class PatientDetail(models.Model):
             else:
                 x.total_amount = False
 
+    def check_orm(self):
+        search_var = self.env['patient.detail'].search([])
+        print("search var---------", search_var)
+        for rec in search_var:
+            print("Name:-   ", rec.name)
+
+    def check_create(self):
+        create_var = self.env['patient.detail'].create({
+            "name":"mohamad",
+            
+            "age":23,
+            "address":"dholka"
+
+        })
+        print("cerate var---------",create_var)
+
+    def check_browse(self):
+        browse_var = self.env['patient.detail'].browse([15,14,59])
+        for rec in browse_var:
+            print("browse var---------",rec,"name:- ",rec.name ,"age",rec.age)
+
+    def check_unlink(self):
+        unlink_var = self.env['patient.detail'].browse([15])
+        unlink_var.unlink()
 
     @api.onchange('select_doctor')
     def onchange_select_doctor(self):
-        self.ref =self.select_doctor.ref
+        self.ref = self.select_doctor.ref
 
     def obj_test(self):
         print("Button Clicked")

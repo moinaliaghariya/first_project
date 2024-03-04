@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template>
+    <t t-name="WebButton" owl="1">
+        <div class="control-button">
+             <i class="fa fa-superpowers" role="img" aria-label="Sample Button" title="Sample Button"/>
+            Sample Button
+
+        </div>
+    </t>
+</template>
